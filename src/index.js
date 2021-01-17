@@ -46,6 +46,8 @@ const { globalShortcut } = require('electron')
 app.whenReady().then( async () => {
   // await command("");
 
+  await command('sudo pfctl -ef /etc/pf.conf');
+
   await command('echo "block in on en0 all" > ./pf_block_all.conf');
 
   globalShortcut.register('Alt+CommandOrControl+I', () => {
@@ -64,11 +66,16 @@ app.whenReady().then( async () => {
 
   globalShortcut.register('F2', async () => {
     console.log('F2收到')
-    sendNotification('整活关闭', '');
+    sendNotification('联网成功', '');
     await command('sudo pfctl -f /etc/pf.conf') 
     // await command('sudo ifconfig en0 up');
   })
 
+  globalShortcut.register('F3', async () => {
+    console.log('F3收到')
+    sendNotification('断网启动', '');
+    await command('sudo pfctl -f  ./pf_block_all.conf');
+  })
 }).then(createWindow)
 
 app.on('window-all-closed', () => {
