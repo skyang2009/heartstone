@@ -45,9 +45,7 @@ const { globalShortcut } = require('electron')
 
 app.whenReady().then( async () => {
   // await command("");
-
-  await command('sudo pfctl -ef /etc/pf.conf');
-
+  await command('sudo pfctl -e');
   await command('echo "block in on en0 all" > ./pf_block_all.conf');
 
   globalShortcut.register('Alt+CommandOrControl+I', () => {
