@@ -2,9 +2,10 @@
 ## Mac Tools for HeartStone
 
 ## 使用说明：游戏每局倒计时剩3秒时按F1一键开整，稍等片刻整活完毕
-## 需要npm和nodejs环境，需要root权限
+## 需要nodejs环境、npm以及electron-forge，需要root权限
 ## 1、npm install
-## 2、sudo npm run start
+## 2、npm install -g @electron-forge/cli
+## 3、sudo npm run start
 
 
 
